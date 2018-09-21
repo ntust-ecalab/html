@@ -118,16 +118,31 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h2>Adviser</h2>
-                    <ul class="list-inline">
-                        <li class="list-inline-item">
-                            <img src="img/people/adviser/2018_03_08.jpg" width="200">
-                        </li>
-                        <li class="list-inline-item">
-                            <p>Chin-Hsien Wu 吳晉賢<br>
-                                <a href="mailto:chwu@mail.ntust.edu.tw">Email: chwu@mail.ntust.edu.tw</a></p>
-                            </li>
-                        </ul>
+                        
+                        <?php
+                        $conn = new mysqli("localhost", "pmauser", "ecalab1234", "lab");
+                        $conn->set_charset("utf8");
+                        if ($conn->connect_error) {
+                            die("Connection failed: " .$conn->connect_error);
+                        }
+                        
+                        $results = $conn->query("SELECT * FROM `people` WHERE `id` LIKE 'D%' AND `alumni` = '0000' ");
+                        while ($row = $results->fetch_assoc()) {
+                            echo '<ul class="list-inline">';
+                            echo '<li class="list-inline-item">';
+                            echo '<img src="'. $row["image"] .'" width="200">';
+                            echo '</li>';
+                            echo '<li class="list-inline-item">';
+                            echo '<p>'. $row["name"] .'<br>';
+                            echo '<a href="mailto:'. $row["email"] .'">Email: '. $row["email"] .'</a></p>';
+                            echo '</li>';
+                            echo '</ul>';
+                        }
+                        
+                        $conn->close();
+                        ?>
                     </div>
+
                     <div class="col-lg-8 mx-auto">
                         <h2><br>Ph.D. Students</h2>
                         
