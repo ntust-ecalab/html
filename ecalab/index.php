@@ -126,7 +126,7 @@
                             die("Connection failed: " .$conn->connect_error);
                         }
                         
-                        $results = $conn->query("SELECT * FROM `people` WHERE `id` LIKE 'D%' AND `alumni` = '0000' ");
+                        $results = $conn->query("SELECT * FROM `people` WHERE `id` LIKE 'A%' AND `alumni` = '0000' ");
                         while ($row = $results->fetch_assoc()) {
                             echo '<ul class="list-inline">';
                             echo '<li class="list-inline-item">';
