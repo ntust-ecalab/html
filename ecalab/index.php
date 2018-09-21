@@ -224,7 +224,7 @@
                                             echo '</li><li class="list-inline-item" style="width:150px">';
                                             switch (substr($row["id"], 0, 1)) {
                                                 case "D":
-                                                    echo "PhD, ".intval(substr($row["id"], 1, 3));
+                                                    echo "PhD".intval(substr($row["id"], 1, 3));
                                                     break;
                                                 case "M":
                                                     echo "Master, ".intval(substr($row["id"], 1, 3));
