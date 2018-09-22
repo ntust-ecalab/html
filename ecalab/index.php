@@ -229,7 +229,7 @@
                                                 case "M":
                                                     echo "Master, ".intval(substr($row["id"], 1, 3));
                                                     break;
-                                                case "B":
+                                                case "U":
                                                     echo "Undergraduate, ".intval(substr($row["id"], 1, 3));
                                                     break;
                                             }
