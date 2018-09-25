@@ -1,6 +1,6 @@
 # Upload Image
   - Visit https://github.com/ntust-ecalab/html
-  - change to correct directory
+  - change to correct directory /ecalab/img/...
   - Upload image
   - ``` $ ssh pi@192.168.0.102 ```
   - ``` $ cd /var/www/html ```
