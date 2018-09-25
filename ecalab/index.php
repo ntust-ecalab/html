@@ -118,159 +118,133 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h2>Adviser</h2>
-                        
-                        <?php
-                        $conn = new mysqli("localhost", "pmauser", "ecalab1234", "lab");
-                        $conn->set_charset("utf8");
-                        if ($conn->connect_error) {
-                            die("Connection failed: " .$conn->connect_error);
-                        }
-                        
-                        $results = $conn->query("SELECT * FROM `people` WHERE `id` LIKE 'A%' AND `alumni` = '0000' ");
-                        while ($row = $results->fetch_assoc()) {
-                            echo '<ul class="list-inline">';
-                            echo '<li class="list-inline-item">';
-                            echo '<img src="'. $row["image"] .'" width="200">';
-                            echo '</li>';
-                            echo '<li class="list-inline-item">';
-                            echo '<p>'. $row["name"] .'<br>';
-                            echo '<a href="mailto:'. $row["email"] .'">Email: '. $row["email"] .'</a></p>';
-                            echo '</li>';
-                            echo '</ul>';
-                        }
-                        
-                        $conn->close();
-                        ?>
-                    </div>
-
-                    <div class="col-lg-8 mx-auto">
-                        <h2><br>Ph.D. Students</h2>
-                        
-                        <?php
-                        $conn = new mysqli("localhost", "pmauser", "ecalab1234", "lab");
-                        $conn->set_charset("utf8");
-                        if ($conn->connect_error) {
-                            die("Connection failed: " .$conn->connect_error);
-                        }
-                        
-                        $results = $conn->query("SELECT * FROM `people` WHERE `id` LIKE 'D%' AND `alumni` = '0000' ");
-                        while ($row = $results->fetch_assoc()) {
-                            echo '<ul class="list-inline">';
-                            echo '<li class="list-inline-item">';
-                            echo '<img src="'. $row["image"] .'" width="150">';
-                            echo '</li>';
-                            echo '<li class="list-inline-item">';
-                            echo '<p>'. $row["name"] .'<br>';
-                            echo '<a href="mailto:'. $row["email"] .'">Email: '. $row["email"] .'</a></p>';
-                            echo '</li>';
-                            echo '</ul>';
-                        }
-                        
-                        $conn->close();
-                        ?>
-                    </div>
                     
-                    <div class="col-lg-8 mx-auto">
-                        <h2><br>Master's Students</h2>
-                        
-                        <?php
-                        $conn = new mysqli("localhost", "pmauser", "ecalab1234", "lab");
-                        $conn->set_charset("utf8");
-                        if ($conn->connect_error) {
-                            die("Connection failed: " .$conn->connect_error);
-                        }
-                        
-                        $results = $conn->query("SELECT * FROM `people` WHERE `id` LIKE 'M%' AND `alumni` = '0000' ");
-                        while ($row = $results->fetch_assoc()) {
-                            echo '<ul class="list-inline">';
-                            echo '<li class="list-inline-item">';
-                            echo '<img src="'. $row["image"] .'" width="150">';
-                            echo '</li>';
-                            echo '<li class="list-inline-item">';
-                            echo '<p>'. $row["name"] .'<br>';
-                            echo '<a href="mailto:'. $row["email"] .'">Email: '. $row["email"] .'</a></p>';
-                            echo '</li>';
-                            echo '</ul>';
-                        }
-                        
-                        $conn->close();
-                        ?>
-                    </div>
+                    <?php
+                    $conn = new mysqli("localhost", "pmauser", "ecalab1234", "lab");
+                    $conn->set_charset("utf8");
+                    if ($conn->connect_error) {
+                        die("Connection failed: " .$conn->connect_error);
+                    }
                     
-                    <div class="col-lg-8 mx-auto">
-                        <div class="panel-group" id="accordion">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h2 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                            <br>Alumni
-                                        </a>
-                                    </h4>
-                                </div>
-                                
-                                <div id="collapseOne" class="panel-collapse collapse in">
-                                    <div class="panel-body">
-                                        <?php
-                                        $conn = new mysqli("localhost", "pmauser", "ecalab1234", "lab");
-                                        $conn->set_charset("utf8");
-                                        if ($conn->connect_error) {
-                                            die("Connection failed: " .$conn->connect_error);
-                                        }
-                                        
-                                        $results = $conn->query("SELECT * FROM `people` WHERE `alumni` != '0000' ");
-                                        while ($row = $results->fetch_assoc()) {
-                                            echo '<ul class="list-inline"><li class="list-inline-item" style="width:100px">';
-                                            echo $row["name"];
-                                            echo '</li><li class="list-inline-item" style="width:150px">';
-                                            switch (substr($row["id"], 0, 1)) {
-                                                case "D":
-                                                    echo "PhD, ".intval(substr($row["id"], 1, 3));
-                                                    break;
-                                                case "M":
-                                                    echo "Master, ".intval(substr($row["id"], 1, 3));
-                                                    break;
-                                                case "U":
-                                                    echo "Undergraduate, ".intval(substr($row["id"], 1, 3));
-                                                    break;
-                                            }
-                                            echo '</li><li class="list-inline-item" style="width:400px"><a href="mailto:';
-                                            echo $row["email"];
-                                            echo '">Email: ';
-                                            echo $row["email"];
-                                            echo '</a></li></ul>';
-                                        }
-                                        
-                                        $conn->close();
-                                        ?>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
+                    $results = $conn->query("SELECT * FROM `people` WHERE `id` LIKE 'A%' AND `alumni` = '0000' ");
+                    while ($row = $results->fetch_assoc()) {
+                        echo '<ul class="list-inline">';
+                        echo '<li class="list-inline-item">';
+                        echo '<img src="'. $row["image"] .'" width="200">';
+                        echo '</li>';
+                        echo '<li class="list-inline-item">';
+                        echo '<p>'. $row["name"] .'<br>';
+                        echo '<a href="mailto:'. $row["email"] .'">Email: '. $row["email"] .'</a></p>';
+                        echo '</li>';
+                        echo '</ul>';
+                    }
+                    
+                    echo '</div>';
+                    
+                    echo '<div class="col-lg-8 mx-auto">';
+                    echo '<h2><br>Ph.D. Students</h2>';
+                    
+                    $results = $conn->query("SELECT * FROM `people` WHERE `id` LIKE 'D%' AND `alumni` = '0000' ");
+                    while ($row = $results->fetch_assoc()) {
+                        echo '<ul class="list-inline">';
+                        echo '<li class="list-inline-item">';
+                        echo '<img src="'. $row["image"] .'" width="150">';
+                        echo '</li>';
+                        echo '<li class="list-inline-item">';
+                        echo '<p>'. $row["name"] .'<br>';
+                        echo '<a href="mailto:'. $row["email"] .'">Email: '. $row["email"] .'</a></p>';
+                        echo '</li>';
+                        echo '</ul>';
+                    }
+                    
+                    echo '</div>';
+                    
+                    echo '<div class="col-lg-8 mx-auto">';
+                    echo '<h2><br>Master\'s Students</h2>';
+                    
+                    $results = $conn->query("SELECT * FROM `people` WHERE `id` LIKE 'M%' AND `alumni` = '0000' ");
+                    while ($row = $results->fetch_assoc()) {
+                        echo '<ul class="list-inline">';
+                        echo '<li class="list-inline-item">';
+                        echo '<img src="'. $row["image"] .'" width="150">';
+                        echo '</li>';
+                        echo '<li class="list-inline-item">';
+                        echo '<p>'. $row["name"] .'<br>';
+                        echo '<a href="mailto:'. $row["email"] .'">Email: '. $row["email"] .'</a></p>';
+                        echo '</li>';
+                        echo '</ul>';
+                    }
+                    
+                    echo '</div>';
+                    
+                    echo '<div class="col-lg-8 mx-auto">';
+                    echo '<div class="panel-group" id="accordion">';
+                    echo '<div class="panel panel-default">';
+                    echo '<div class="panel-heading">';
+                    echo '<h2 class="panel-title">';
+                    echo '<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">';
+                    echo '<br>Alumni';
+                    echo '</a>';
+                    echo '</h4>';
+                    echo '</div>';
+                    
+                    echo '<div id="collapseOne" class="panel-collapse collapse in">';
+                    echo '<div class="panel-body">';
+                    
+                    $results = $conn->query("SELECT * FROM `people` WHERE `alumni` != '0000' ");
+                    while ($row = $results->fetch_assoc()) {
+                        echo '<ul class="list-inline"><li class="list-inline-item" style="width:100px">';
+                        echo $row["name"];
+                        echo '</li><li class="list-inline-item" style="width:150px">';
+                        switch (substr($row["id"], 0, 1)) {
+                            case "D":
+                            echo "PhD, ".intval(substr($row["id"], 1, 3));
+                            break;
+                            case "M":
+                            echo "Master, ".intval(substr($row["id"], 1, 3));
+                            break;
+                            case "U":
+                            echo "Undergraduate, ".intval(substr($row["id"], 1, 3));
+                            break;
+                        }
+                        echo '</li><li class="list-inline-item" style="width:400px"><a href="mailto:';
+                        echo $row["email"];
+                        echo '">Email: ';
+                        echo $row["email"];
+                        echo '</a></li></ul>';
+                    }
+                    
+                    $conn->close();
+                    ?>
+                    
                 </div>
             </div>
-        </section>
-        
-        <!-- Footer -->
-        <footer>
-            <div class="container text-center">
-                <p>Copyright &copy; 2018 <a href="../phpMyAdmin-4.8.3-all-languages">NTUST ECA Lab.</a> All Rights Reserved.</p>
-            </div>
-        </footer>
-        
-        <!-- Bootstrap core JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        
-        <!-- Plugin JavaScript -->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-        
-        <!-- Custom scripts for this template -->
-        <script src="js/grayscale.min.js"></script>
-        
-    </body>
+        </div>
+    </div>
     
-    </html>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container text-center">
+        <p>Copyright &copy; 2018 <a href="../phpMyAdmin-4.8.3-all-languages">NTUST ECA Lab.</a> All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="js/grayscale.min.js"></script>
+
+</body>
+
+</html>
 
