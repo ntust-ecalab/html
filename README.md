@@ -1,6 +1,6 @@
 # Upload Image
   - Visit https://github.com/ntust-ecalab/html
-  - Change to correct directory. (/ecalab/img/...)
+  - Change to correct directory. (./ecalab/img/...)
   - Upload image.
   - Connect Lab Wi-Fi.
   - ``` $ ssh pi@192.168.0.102 ```
