@@ -10,7 +10,7 @@
 # Update Datebase
   - Connect to "Lab Wi-Fi".
   - Visit http://140.118.115.43/phpMyAdmin-4.8.3-all-languages
-  - 'pmauser'/'password'
+  - 'pmauser'/'eca blah blah blah'
   - -> lab -> people
   - Insert or modify.
   - Don't forget to backup the latest version. (-> lab -> Export)
