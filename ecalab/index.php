@@ -141,8 +141,8 @@
                     
                     echo '</div>';
                     
-                    echo '<div class="col-lg-8 mx-auto">';
-                    echo '<h2><br>Ph.D. Students</h2>';
+                    // echo '<div class="col-lg-8 mx-auto">';
+                    // echo '<h2><br>Ph.D. Students</h2>';
                     
                     $results = $conn->query("SELECT * FROM `people` WHERE `id` LIKE 'D%' AND `alumni` = '0000' ");
                     while ($row = $results->fetch_assoc()) {
@@ -157,7 +157,7 @@
                         echo '</ul>';
                     }
                     
-                    echo '</div>';
+                    // echo '</div>';
                     
                     echo '<div class="col-lg-8 mx-auto">';
                     echo '<h2><br>Master\'s Students</h2>';
