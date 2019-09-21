@@ -207,6 +207,10 @@
                             echo "Undergraduate, ".intval(substr($row["id"], 1, 3));
                             break;
                         }
+                        if (!empty($row["isopenjob"]) || !empty($_GET['getjob'])) {
+                            echo '</li><li class="list-inline-item" style="width:400px">';
+                            echo 'First Job: '.(!empty($row['firstjob'])?$row['firstjob']:"");
+                        }
                         echo '</li><li class="list-inline-item" style="width:400px"><a href="mailto:';
                         echo $row["email"];
                         echo '">Email: ';
@@ -230,7 +234,7 @@
 <!-- Footer -->
 <footer>
     <div class="container text-center">
-        <p>Copyright &copy; 2018 <a href="../phpMyAdmin-4.8.3-all-languages">NTUST ECA Lab.</a> All Rights Reserved.</p>
+        <p>Copyright &copy; 2019 <a href="../phpMyAdmin-4.8.3-all-languages">NTUST ECA Lab.</a> All Rights Reserved.</p>
     </div>
 </footer>
 
